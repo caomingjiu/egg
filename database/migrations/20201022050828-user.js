@@ -41,7 +41,7 @@ module.exports = {
         comment: '头像'
       },
       phone: {
-        type: STRING(11),
+        type: STRING(255),
         allowNull: false,
         defaultValue: '',
         comment: '手机'
