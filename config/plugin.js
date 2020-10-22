@@ -1,11 +1,17 @@
 'use strict'
 
-// config/plugin.js
-exports.nunjucks = {
-  enable: true,
-  package: 'egg-view-nunjucks',
-  cors:{
+/** @type Egg.EggPlugin */
+module.exports = {
+  cors: {
     enable: true,
     package: 'egg-cors',
   },
-};
+  sequelize: {
+    enable: true,
+    package: 'egg-sequelize',
+  },
+  valparams: {
+    enable: true,
+    package: 'egg-valparams',
+  },
+}
