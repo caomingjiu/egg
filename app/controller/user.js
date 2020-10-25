@@ -3,6 +3,15 @@
 const Controller = require('egg').Controller
 const crypto = require('crypto')
 class UserController extends Controller {
+  // 退出登录
+  async logout() {
+    const { ctx, service } = this
+    const currentUserId = ctx.authUser.id
+    if (!(await service.cache.remove('user_' + currentUserId))) {
+      ctx.throw(400, '退出登录失败')
+    }
+    ctx.apiSuccess('退出登录成功')
+  }
   // 注册
   async reg() {
     const { ctx, app } = this
